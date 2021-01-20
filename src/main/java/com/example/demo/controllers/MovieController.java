@@ -20,7 +20,7 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping
-    public List<MovieResultItem> getAllMovies() {
+    public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
     }
 
