@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.entities.Cast;
 import com.example.demo.entities.Movie;
 import com.example.demo.models.MovieResultItem;
 import com.example.demo.services.MovieService;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/movies")
+@RequestMapping("/rest/movie")
 public class MovieController {
 
     @Autowired
@@ -29,4 +30,8 @@ public class MovieController {
         return movieService.getMovieById(id);
     }
 
+    @GetMapping("/{id}/cast")
+    public List<Cast> getCastMovieById(@PathVariable int id) {
+        return movieService.getCastByMovieId(id);
+    }
 }

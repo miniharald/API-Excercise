@@ -1,11 +1,9 @@
 package com.example.demo.repositories;
 
-import com.example.demo.entities.Movie;
+import com.example.demo.entities.Cast;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface MovieRepo extends CrudRepository<Movie, Integer> {
+public interface CastRepo extends CrudRepository<Cast, Integer> {
 }

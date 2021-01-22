@@ -7,7 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -16,14 +16,11 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name= "movies")
-public class Movie {
+@Table(name= "cast")
+public class Cast {
     @Id
     private int id;
-    private String title;
-    private String originalTitle;
-    private String posterUrl;
-    private String releaseDate;
-    @OneToMany
-    private List<Cast> credits;
+    private String name;
+    private String originalName;
+    private String imageUrl;
 }
