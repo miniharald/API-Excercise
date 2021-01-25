@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+
+body {
+    background-color: #3c0303;
+    font-family: 'Baloo Thambi 2', cursive;
+    color: #FFFFFF;
+}
+
+div {
+    border: 2px solid #FFFFFF;
+    background-color: #6c0303;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h2, h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+.description {
+    margin-bottom: 2px !important;
+}

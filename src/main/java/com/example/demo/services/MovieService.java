@@ -119,4 +119,52 @@ public class MovieService {
 
         return credits;
     }
+
+    public String createMovie(Movie movie) {
+        Optional<Movie> optional = movieRepo.findById(movie.getId());
+        if(optional.isPresent()) {
+            return "Movie with id " + movie.getId() + " already exists";
+        } else {
+            movieRepo.save(movie);
+            return "Movie created successfully";
+        }
+
+    }
+
+    public String deleteMovie(int id) {
+        Movie movie;
+        Optional<Movie> optional = movieRepo.findById(id);
+        if(optional.isPresent()) {
+            movie = optional.get();
+            movieRepo.delete(movie);
+            return "Movie deleted";
+        } else {
+            return "Movie not found";
+        }
+    }
+
+    public String updateMovie(Movie updatedMovie, int id) {
+        Movie movie;
+        Optional<Movie> optional = movieRepo.findById(id);
+        if(optional.isPresent()) {
+            movie = optional.get();
+            String oldTitle = movie.getTitle();
+            if (updatedMovie.getTitle() != null) {
+                movie.setTitle(updatedMovie.getTitle());
+            }
+            if (updatedMovie.getOriginalTitle() != null) {
+                movie.setOriginalTitle(updatedMovie.getOriginalTitle());
+            }
+            if (updatedMovie.getPosterUrl() != null) {
+                movie.setPosterUrl(updatedMovie.getPosterUrl());
+            }
+            if (updatedMovie.getReleaseDate() != null) {
+                movie.setReleaseDate(updatedMovie.getReleaseDate());
+            }
+            movieRepo.save(movie);
+            return oldTitle + " is updated to " + movie.getTitle();
+        } else {
+            return "Movie not found";
+        }
+    }
 }

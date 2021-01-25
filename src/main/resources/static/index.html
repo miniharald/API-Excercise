@@ -3,8 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div>
+    <h2>Hämta alla filmer</h2>
+    <h4>Route: /rest/movie</h4>
+    <h4>Metod: GET</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Hämta ut alla filmer ur databasen.
+    </p>
+</div>
+<div>
+    <h2>Hämta ut specifik film via ID</h2>
+    <h4>Route: /rest/movie/{id}</h4>
+    <h4>Metod: GET</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Hämta ut en films information med hjälp av ett ID.
+        I nuläget är en films ID ett nummer mellan 1 och 750.
+        Till skillnad från hämta ut alla filmer får du även filmens skådespelare.
+    </p>
+</div>
+<div>
+    <h2>Hämta ut rollistan för en specifik film via ID</h2>
+    <h4>Route: /rest/movie/{id}/cast</h4>
+    <h4>Metod: GET</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Hämta ut skådespelarna för en film via filmens ID.
+        I nuläget är en films ID ett nummer mellan 1 och 750.
+    </p>
+</div>
+<div>
+    <h2>Ändra en specifik film från databasen via ID</h2>
+    <h4>Route: /rest/movie/new</h4>
+    <h4>Metod: POST</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Skapa en film från grunden.
+        Du behöver skriva in filmens ID, titel, originaltitel,
+        länken till postern, datumen filmen släpptes och en vektor med skådespelare,
+        men det räcker med en tom vektor.
+        Ett exempel:
+    </p>
+    <pre>
+        {
+            "id": 1,
+            "title": "Den bruna filmen",
+            "originalTitle": "Den bruna filmen",
+            "posterUrl": "ingen länk",
+            "releaseDate": "2020-01-25",
+            "credits": []
+        }
+    </pre>
+</div>
+<div>
+    <h2>Ändra en specifik film från databasen via ID</h2>
+    <h4>Route: /rest/movie/update/{id}</h4>
+    <h4>Metod: PUT</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Ändra viss information om en film i databasen via filmens ID.
+        I nuläget är en films ID ett nummer mellan 1 och 750.
+        Du kan ändra filmens titel, originaltitel,
+        länken till postern eller datumen filmen släpptes.
+        Du behöver inte skriva in hela objekten som ovan utan
+        det räcker att du skriver egenskapen du vill ändra t ex:
+    </p>
+    <pre>
+        {
+            "title": "Den gula filmen"
+        }
+    </pre>
+</div>
+<div>
+    <h2>Ta bort en specifik film från databasen via ID</h2>
+    <h4>Route: /rest/movie/delete/{id}</h4>
+    <h4>Metod: DELETE</h4>
+    <h4 class="description">Förklaring:</h4>
+    <p>
+        Ta bort en film från databasen via filmens ID.
+        I nuläget är en films ID ett nummer mellan 1 och 750.
+    </p>
+</div>
 
 </body>
 </html>
